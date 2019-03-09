@@ -15,7 +15,7 @@
 	<classpathentry kind="lib" path="C:/Jar files/selenium-java-3.6.0/jna-4.1.0.jar"/>
 	<classpathentry kind="lib" path="C:/Jar files/selenium-java-3.6.0/jna-platform-4.1.0.jar"/>
 	<classpathentry kind="lib" path="C:/Jar files/selenium-java-3.6.0/org.apache.commons.io.jar"/>
-	<classpathentry kind="lib" path="C:/Jar files/mysql-connector-java-5.1.42/mysql-connector-java-5.1.42-bin.jar"/>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Jar files/mysql-connector-java-8.0.15/mysql-connector-java-8.0.15.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

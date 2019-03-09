@@ -10,14 +10,14 @@ public class jdbcconnectiondemo {
 
 	public static void main(String[] args) throws SQLException {
 		//connect our script to mySQL database 
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/demo?useSSL=false", "root", "Naresh@123!");
-		
-		
+	
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ciat?useSSL=false", "root", "Naresh@123!");
+	
 		
 		//create a path to database connection 
 		Statement s=con.createStatement();
 		// create a query and execute query
-		ResultSet rs=s.executeQuery("Select * from logincredential;");
+		ResultSet rs=s.executeQuery("Select * from credential;");
 		while(rs.next()) {
 		System.out.println(rs.getString("username"));
 		System.out.println(rs.getString("password"));

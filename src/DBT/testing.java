@@ -9,7 +9,7 @@ import java.util.Properties;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 
 public class testing {
@@ -20,11 +20,11 @@ public class testing {
 	// Result Set
 	private static ResultSet results = null;
 	// Constant for Database URL
-	public static String DB_URL = "jdbc:mysql://localhost:3306/users"; // ORacle "jdbc:oracle:thin:@localhost:1521/sid"
+	public static String DB_URL = "jdbc:mysql://localhost:3306/ciat"; // ORacle "jdbc:oracle:thin:@localhost:1521/sid"
 	// Constant for Database Username
 	public static String DB_USER = "root";
 	// Constant for Database Password
-	public static String DB_PASSWORD = null;
+	public static String DB_PASSWORD = "Naresh@123!";
 	// Driver
 	public static String dv = "com.mysql.jdbc.Driver"; // "oracle.jdbc.driver.OracleDriver"
 	// WebDriver
@@ -33,7 +33,9 @@ public class testing {
 	@BeforeClass
 	public void beforeClass() {
 		// Intialize WebDriver
-		driver = new FirefoxDriver();
+		System.setProperty("webdriver.chrome.driver", "c:\\driver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		
 		// Properties for creating connection to database
 		Properties props = new Properties();
 		props.setProperty("user", "root");
@@ -58,21 +60,17 @@ public class testing {
 
 	@Test
 	public void test() throws SQLException {
-        String query = "select * from user_info";
+        String query = "select * from credentialzerobank";
         try {
         	// STEP 4: Extract data from result set
         	results = stmt.executeQuery(query);
         	while (results.next()) {
-        		int id = results.getInt("user_id");
-        		String last = results.getString("last_name");
-        		String first = results.getString("first_name");
-        		String city = results.getString("city");
+        		String loginName = results.getString("uname");
+        		String passWord = results.getString("pword");
         		
         		// Display Values
-        		System.out.println("ID: " + id);
-        		System.out.println("Last Name: " + last);
-        		System.out.println("First Name: " + first);
-        		System.out.println("City: " + city);
+        		System.out.println("User Name" +loginName);
+        		System.out.println("Password" + passWord);
         		
         		//From GUI
 //        		WebElement element = dv.findElement(By.id("uname"));
